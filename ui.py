@@ -143,15 +143,15 @@ class Window(QtGui.QMainWindow):
 		extract_choice = QtGui.QMessageBox.question(self,"Continue?","Are you sure you want to continue without cropping the image?",QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
 		if extract_choice == QtGui.QMessageBox.Yes:
 			print("Proceeding without image crop........")
-			print self.boundary_xy
+			print (self.boundary_xy)
 			perform_ocr("original_img.jpg")
 			os.startfile("output.txt")
 		else:
 			pass	
 			
 	def extract_with_crop(self):
-		print "Extracting with cropped image........"
-		print self.boundary_xy
+		print("Extracting with cropped image........")
+		print(self.boundary_xy)
 		perform_ocr("original_cropped.jpg")
 		os.startfile("output.txt")
 
@@ -166,7 +166,7 @@ class Window(QtGui.QMainWindow):
 		input_img = cv2.imread(str(name))
 		#input_img = cv2.cvtColor(input_img, cv2.cv.CV_BGR2RGB)
 		cv2.imwrite("original_img.jpg",input_img)
-		print "Image Load Complete........"
+		print("Image Load Complete........")
 		self.store_orgimg_data(input_img.shape)
 		self.is_crop = False
 		self.upload_complete_signal.emit()
